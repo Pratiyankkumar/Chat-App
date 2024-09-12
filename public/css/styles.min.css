@@ -42,7 +42,8 @@ button {
   border: none;
   color: #fff;
   font-size: 16px;
-  transition: background .3s ease
+  transition: background .3s ease;
+  margin-top: 10px;
 }
 
 button:hover {
@@ -166,4 +167,11 @@ button:disabled {
   list-style-type: none;
   font-weight: 300;
   padding: 12px 24px 0
+}
+
+select {
+  width: 120px;
+  height: 32px;
+  border: 1px solid gray;
+  border-radius: 5px;
 }

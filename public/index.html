@@ -11,14 +11,34 @@
   <div class="centered-form">
     <div class="centered-form__box">
       <h1>Join</h1>
-      <form action="/chat.html">
+      <form id="join-form" action="/chat.html" method="GET">
         <label for="">Display Name</label>
-        <input type="text" placeholder="Display Name" name="username" required>
-        <label for="">Room</label>
-        <input type="text" name="room" placeholder="Room" required>
-        <button>Join</button>
+        <input id="js-input" type="text" placeholder="Display Name" name="username" required>
+  
+        <label for="">Enter Room name</label>
+        <input id="js-room-input" type="text" name="room" placeholder="Room">
+  
+        <div id="dropdown-container">
+          <!-- Dropdown will be inserted here by JavaScript -->
+        </div>
+  
+        <button type="submit">Join</button>
       </form>
     </div>
   </div>
+  
+  <!-- Handlebars template for dropdown -->
+  <script id="dropdown-template" type="text/html">
+    <label for="dropdown">Choose an active room:</label>
+    <select id="dropdown" name="room">
+      <option value="" selected disabled>Select a room</option>
+      {{#users}}
+        <option value="{{room}}">{{room}}</option>
+      {{/users}}
+    </select>
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+  <script type="module" src="scripts/index.js"></script>
 </body>
 </html>

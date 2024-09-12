@@ -4,7 +4,7 @@ const path = require('path')
 const socketio = require('socket.io')
 const Filter = require('bad-words')
 const { generateMessage, generateLocationMessage } = require('./utils/messages')
-const { addUser, removeUser, getUser, getUserInRoom } = require('./utils/users')
+const { addUser, removeUser, getUser, getUserInRoom, users } = require('./utils/users')
 
 const app = express()
 const server = http.createServer(app)
@@ -91,6 +91,10 @@ io.on('connection', (socket) => {
 
 app.get('/', (req, res) => {
   res.sendFile('index.html', { root: publicDirectoryPath })
+})
+
+app.get('/getUsers', (req, res) => {
+  res.send(users)
 })
 
 const port = process.env.PORT || 3000

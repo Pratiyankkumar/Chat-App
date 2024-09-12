@@ -67,5 +67,6 @@ module.exports = {
   addUser,
   removeUser,
   getUser,
-  getUserInRoom
+  getUserInRoom,
+  users
 }
