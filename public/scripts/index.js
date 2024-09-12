@@ -6,7 +6,7 @@ let users;
 
   // Function to fetch users and render the dropdown
   async function fetchUser() {
-    const userRequest = await fetch('https://chat-app-9u7m.onrender.com/getUsers', {
+    const userRequest = await fetch('http://localhost:3000/getUsers', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -16,16 +16,14 @@ let users;
     users = await userRequest.json();
     console.log(users);
 
-    if (users.length > 0) {
-      const html = Mustache.render(dropdownTemplate, { users });
-      dropdownContainer.innerHTML = html;
+    const html = Mustache.render(dropdownTemplate, { users });
+    dropdownContainer.innerHTML = html;
 
-      // Attach event listener to the dropdown
-      const dropdown = document.querySelector('#dropdown');
-      dropdown.addEventListener('change', function() {
-        roomInput.value = ''; // Clear the room input if a dropdown is selected
-      });
-    }
+    // Attach event listener to the dropdown
+    const dropdown = document.querySelector('#dropdown');
+    dropdown.addEventListener('change', function() {
+      roomInput.value = ''; // Clear the room input if a dropdown is selected
+    });
   }
 
   fetchUser();
