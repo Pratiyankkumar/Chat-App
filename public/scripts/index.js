@@ -6,7 +6,7 @@ let users;
 
   // Function to fetch users and render the dropdown
   async function fetchUser() {
-    const userRequest = await fetch('http://localhost:3000/getUsers', {
+    const userRequest = await fetch('https://chat-app-9u7m.onrender.com/getUsers', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
